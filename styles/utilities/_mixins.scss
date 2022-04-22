@@ -1,0 +1,169 @@
+/* flexbox */
+$flex-map: (
+  start: flex-start,
+  end: flex-end,
+  between: space-between,
+  around: space-around,
+  stretch: stretch,
+  center: center,
+);
+
+@function _get-flex-value($key) {
+  @return map-get($flex-map, $key);
+}
+
+@mixin flexbox($jc: center, $ai: center) {
+  display: flex;
+  align-items: _get-flex-value($ai);
+  justify-content: _get-flex-value($jc);
+}
+
+@mixin inline-flexbox($jc: center, $ai: center) {
+  display: inline-flex;
+  align-items: _get-flex-value($ai);
+  justify-content: _get-flex-value($jc);
+}
+
+@mixin column-flexbox($jc: center, $ai: center) {
+  display: flex;
+  flex-direction: column;
+  align-items: _get-flex-value($ai);
+  justify-content: _get-flex-value($jc);
+}
+
+/* positions */
+@mixin pos-center-x($type: absolute) {
+  @if ($type == fixed or $type == absolute) {
+    position: $type;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@mixin pos-center-y($type: absolute) {
+  @if ($type == fixed or $type == absolute) {
+    position: $type;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+@mixin pos-center($type: absolute) {
+  @if ($type == fixed or $type == absolute) {
+    position: $type;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* responsive */
+@mixin responsive($screen) {
+  @if ($screen == 'T') {
+    /* 태블릿 */
+    @media screen and (min-width: $md-breakpoint) {
+      @content;
+    }
+  }
+
+  @if ($screen == 'D') {
+    /* 데스크탑 */
+    @media screen and (min-width: $lg-breakpoint) {
+      @content;
+    }
+  }
+}
+
+@mixin mobile-only() {
+  /* 모바일 */
+  @media screen and (max-width: $md-breakpoint - 1px) {
+    @content;
+  }
+}
+
+/* text style */
+@mixin text-style-226() {
+  font-size: $font-size-226;
+  line-height: $line-height-226;
+  letter-spacing: $letter-spacing-226;
+}
+
+@mixin text-style-130() {
+  font-size: $font-size-130;
+  line-height: $line-height-130;
+  letter-spacing: $letter-spacing-130;
+}
+
+@mixin text-style-86() {
+  font-size: $font-size-86;
+  line-height: $line-height-86;
+  letter-spacing: $letter-spacing-86;
+}
+
+@mixin text-style-58() {
+  font-size: $font-size-58;
+  line-height: $line-height-58;
+  letter-spacing: $letter-spacing-58;
+}
+
+@mixin text-style-30() {
+  font-size: $font-size-30;
+  line-height: $line-height-30;
+  letter-spacing: $letter-spacing-30;
+}
+
+@mixin text-style-26() {
+  font-size: $font-size-26;
+  line-height: $line-height-26;
+  letter-spacing: $letter-spacing-26;
+}
+
+@mixin text-style-21() {
+  font-size: $font-size-21;
+  line-height: $line-height-21;
+  letter-spacing: $letter-spacing-21;
+}
+
+@mixin text-style-17() {
+  font-size: $font-size-17;
+  line-height: $line-height-17;
+  letter-spacing: $letter-spacing-17;
+}
+
+@mixin text-style($size, $color: false) {
+  @if ($size == 226) {
+    @include text-style-226;
+  }
+
+  @if ($size == 130) {
+    @include text-style-130;
+  }
+
+  @if ($size == 86) {
+    @include text-style-86;
+  }
+
+  @if ($size == 58) {
+    @include text-style-58;
+  }
+
+  @if ($size == 30) {
+    @include text-style-30;
+  }
+
+  @if ($size == 26) {
+    @include text-style-26;
+  }
+
+  @if ($size == 21) {
+    @include text-style-21;
+  }
+
+  @if ($size == 17) {
+    @include text-style-17;
+  }
+
+  @if (type-of($color) == color) {
+    color: $color;
+  }
+}
