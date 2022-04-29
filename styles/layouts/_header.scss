@@ -1,6 +1,6 @@
 .header {
   @include flexbox(end);
-  padding: 10px 20px;
+  padding: $margin-sm / 2 $margin-sm;
 
   .logo {
     margin-right: auto;
@@ -61,8 +61,8 @@
 
     .btn-gnb-close {
       position: absolute;
-      top: 20px;
-      right: 20px;
+      top: $margin-sm;
+      right: $margin-sm;
       width: 60px;
 
       svg {
@@ -72,7 +72,7 @@
     }
 
     .mo-gnb {
-      padding-left: 20px;
+      padding-left: $margin-sm;
 
       li {
         margin-top: 8px;
@@ -95,7 +95,7 @@
 
   @include responsive(T) {
     @include flexbox(between);
-    padding: 20px 40px;
+    padding: $margin-md / 2 $margin-md;
 
     .logo {
       margin-right: 0;
