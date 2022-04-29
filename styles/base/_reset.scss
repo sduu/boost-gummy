@@ -12,7 +12,8 @@ html {
 
 body {
   font-family: $font-main;
-  background-color: $white;
+  background-color: $yellow;
+  background-image: linear-gradient(315deg, $orange 8.31%, $yellow 88.22%);
 }
 
 h1,

@@ -1,0 +1,152 @@
+.header {
+  @include flexbox(end);
+  padding: 10px 20px;
+
+  .logo {
+    margin-right: auto;
+
+    a {
+      display: block;
+      width: 100px;
+    }
+
+    svg {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .btn-cart {
+    margin-right: 20px;
+
+    a {
+      display: block;
+      width: 110px;
+      height: 60px;
+      font-size: 16px;
+      line-height: 60px;
+      color: #fff;
+      text-align: center;
+      letter-spacing: 0.03em;
+      border: 2px solid #fff;
+      border-radius: 30px;
+    }
+  }
+
+  .btn-gnb {
+    svg {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .mo-gnb-wrap {
+    @include flexbox(start);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: $gnb-level;
+    width: 100%;
+    height: 100vh;
+    background-color: $yellow;
+    background-image: linear-gradient(315deg, $orange 8.31%, $yellow 88.22%);
+    opacity: 0;
+    transition: 0.4s ease-in-out;
+    transform: translate3d(100%, 0, 0);
+
+    &.is-open {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+
+    .btn-gnb-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 60px;
+
+      svg {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    .mo-gnb {
+      padding-left: 20px;
+
+      li {
+        margin-top: 8px;
+
+        &:first-child {
+          margin-top: 0;
+        }
+
+        &.is-active a {
+          color: $black;
+        }
+      }
+
+      a {
+        @include text-style(86, $white);
+        font-family: $font-bold;
+      }
+    }
+  }
+
+  @include responsive(T) {
+    @include flexbox(between);
+    padding: 20px 40px;
+
+    .logo {
+      margin-right: 0;
+
+      a {
+        width: 130px;
+      }
+    }
+
+    .gnb {
+      ul {
+        @include flexbox;
+        border: 2px solid #fff;
+        border-radius: 10px;
+      }
+
+      li {
+        padding: 0 40px;
+      }
+
+      a {
+        @include text-style(21, $white);
+        position: relative;
+        display: block;
+        height: 52px;
+        line-height: 52px;
+
+        &::after {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 0;
+          content: '';
+          background: #fff;
+          transition: height 0.2s ease-in-out;
+        }
+
+        &:hover::after {
+          height: 4px;
+        }
+      }
+    }
+
+    .btn-cart {
+      a {
+        height: 52px;
+        font-size: 20px;
+        line-height: 52px;
+        border-radius: 26px;
+      }
+    }
+  }
+}
