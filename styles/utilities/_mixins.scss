@@ -130,6 +130,12 @@ $flex-map: (
   letter-spacing: $letter-spacing-17;
 }
 
+@mixin text-style-13() {
+  font-size: $font-size-13;
+  line-height: $line-height-13;
+  letter-spacing: $letter-spacing-13;
+}
+
 @mixin text-style($size, $color: false) {
   @if ($size == 226) {
     @include text-style-226;
@@ -161,6 +167,10 @@ $flex-map: (
 
   @if ($size == 17) {
     @include text-style-17;
+  }
+
+  @if ($size == 13) {
+    @include text-style-13;
   }
 
   @if (type-of($color) == color) {

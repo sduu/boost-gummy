@@ -87,8 +87,9 @@
       }
 
       a {
-        @include text-style(86, $white);
         font-family: $font-bold;
+        font-size: 86px;
+        color: $white;
       }
     }
   }
@@ -117,11 +118,12 @@
       }
 
       a {
-        @include text-style(21, $white);
         position: relative;
         display: block;
         height: 52px;
+        font-size: 21px;
         line-height: 52px;
+        color: $white;
 
         &::after {
           position: absolute;
