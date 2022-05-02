@@ -1,6 +1,6 @@
 .header {
   @include flexbox(end);
-  padding: $margin-sm / 2 $margin-sm;
+  padding: calc($margin-sm / 2) $margin-sm;
 
   .logo {
     margin-right: auto;
@@ -96,7 +96,7 @@
 
   @include responsive(T) {
     @include flexbox(between);
-    padding: $margin-md / 2 $margin-md;
+    padding: calc($margin-md / 2) $margin-md;
 
     .logo {
       margin-right: 0;
