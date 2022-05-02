@@ -31,6 +31,14 @@ $flex-map: (
   justify-content: _get-flex-value($jc);
 }
 
+/* pixel to vw */
+@function vw-sm($px-vw, $base-vw: $md-breakpoint - 1) {
+  @return calc(($px-vw * 100vw) / $base-vw);
+}
+@function vw-md($px-vw, $base-vw: $lg-breakpoint - 1) {
+  @return calc(($px-vw * 100vw) / $base-vw);
+}
+
 /* positions */
 @mixin pos-center-x($type: absolute) {
   @if ($type == fixed or $type == absolute) {
@@ -78,102 +86,5 @@ $flex-map: (
   /* 모바일 */
   @media screen and (max-width: $md-breakpoint - 1px) {
     @content;
-  }
-}
-
-/* text style */
-@mixin text-style-226() {
-  font-size: $font-size-226;
-  line-height: $line-height-226;
-  letter-spacing: $letter-spacing-226;
-}
-
-@mixin text-style-130() {
-  font-size: $font-size-130;
-  line-height: $line-height-130;
-  letter-spacing: $letter-spacing-130;
-}
-
-@mixin text-style-86() {
-  font-size: $font-size-86;
-  line-height: $line-height-86;
-  letter-spacing: $letter-spacing-86;
-}
-
-@mixin text-style-58() {
-  font-size: $font-size-58;
-  line-height: $line-height-58;
-  letter-spacing: $letter-spacing-58;
-}
-
-@mixin text-style-30() {
-  font-size: $font-size-30;
-  line-height: $line-height-30;
-  letter-spacing: $letter-spacing-30;
-}
-
-@mixin text-style-26() {
-  font-size: $font-size-26;
-  line-height: $line-height-26;
-  letter-spacing: $letter-spacing-26;
-}
-
-@mixin text-style-21() {
-  font-size: $font-size-21;
-  line-height: $line-height-21;
-  letter-spacing: $letter-spacing-21;
-}
-
-@mixin text-style-17() {
-  font-size: $font-size-17;
-  line-height: $line-height-17;
-  letter-spacing: $letter-spacing-17;
-}
-
-@mixin text-style-13() {
-  font-size: $font-size-13;
-  line-height: $line-height-13;
-  letter-spacing: $letter-spacing-13;
-}
-
-@mixin text-style($size, $color: false) {
-  @if ($size == 226) {
-    @include text-style-226;
-  }
-
-  @if ($size == 130) {
-    @include text-style-130;
-  }
-
-  @if ($size == 86) {
-    @include text-style-86;
-  }
-
-  @if ($size == 58) {
-    @include text-style-58;
-  }
-
-  @if ($size == 30) {
-    @include text-style-30;
-  }
-
-  @if ($size == 26) {
-    @include text-style-26;
-  }
-
-  @if ($size == 21) {
-    @include text-style-21;
-  }
-
-  @if ($size == 17) {
-    @include text-style-17;
-  }
-
-  @if ($size == 13) {
-    @include text-style-13;
-  }
-
-  @if (type-of($color) == color) {
-    color: $color;
   }
 }
