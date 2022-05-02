@@ -1,0 +1,23 @@
+.main {
+  &-section-1 {
+    .title {
+      width: vw-sm(546px);
+    }
+
+    .sub {
+      right: 0;
+      bottom: vw-sm(8px);
+      width: vw-sm(213px);
+    }
+  }
+
+  @include responsive(T) {
+    &-section-1 {
+      .sub {
+        right: auto;
+        left: vw-md(510px);
+        width: vw-md(200px);
+      }
+    }
+  }
+}
