@@ -1,5 +1,7 @@
 .main {
   &-section-1 {
+    padding-top: vw-sm(50px);
+
     .title {
       width: vw-sm(546px);
     }
@@ -18,8 +20,24 @@
     }
   }
 
+  &-section-3 {
+    padding-top: vw-sm(300px);
+
+    .title {
+      width: vw-sm(525px);
+    }
+
+    .sub {
+      top: 0;
+      right: vw-sm(125px);
+      width: vw-sm(95px);
+    }
+  }
+
   @include responsive(T) {
     &-section-1 {
+      padding-top: vw-md(150px);
+
       .sub {
         right: auto;
         left: vw-md(510px);
@@ -42,6 +60,24 @@
         position: absolute;
         top: 0;
         right: vw-md(110px);
+      }
+    }
+
+    &-section-3 {
+      .title {
+        width: wv-md(1100px);
+
+        .sm-hidden {
+          display: inline-block;
+          width: wv-md(170px);
+        }
+      }
+
+      .sub {
+        top: wv-md(134px);
+        left: wv-md(50px);
+        right: auto;
+        width: wv-md(120px);
       }
     }
   }

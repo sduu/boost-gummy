@@ -1,12 +1,13 @@
 .main-section {
   &-inner {
     position: relative;
+    width: 100%;
+    overflow: hidden;
     padding: 0 $margin-sm;
   }
 
   &-title {
     position: relative;
-    padding-top: vw-sm(50px);
 
     .title {
       color: $white;
@@ -110,8 +111,6 @@
     }
 
     &-title {
-      padding-top: vw-md(150px);
-
       .title {
         font-size: vw-md(160px);
         line-height: vw-md(120px);
