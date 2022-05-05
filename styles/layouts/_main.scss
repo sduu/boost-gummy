@@ -65,19 +65,19 @@
 
     &-section-3 {
       .title {
-        width: wv-md(1100px);
+        width: vw-md(1100px);
 
         .sm-hidden {
           display: inline-block;
-          width: wv-md(170px);
+          width: vw-md(170px);
         }
       }
 
       .sub {
-        top: wv-md(134px);
-        left: wv-md(50px);
+        top: vw-md(134px);
+        left: vw-md(50px);
         right: auto;
-        width: wv-md(120px);
+        width: vw-md(120px);
       }
     }
   }
