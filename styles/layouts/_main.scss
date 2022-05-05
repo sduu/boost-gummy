@@ -11,12 +11,37 @@
     }
   }
 
+  &-section-2 {
+    .section-circle p {
+      width: vw-sm(220px);
+      text-align: center;
+    }
+  }
+
   @include responsive(T) {
     &-section-1 {
       .sub {
         right: auto;
         left: vw-md(510px);
         width: vw-md(200px);
+      }
+    }
+
+    &-section-2 {
+      .section-circle {
+        margin-top: -#{vw-md(145px)};
+        margin-left: -#{vw-md(75px)};
+
+        p {
+          width: vw-md(255px);
+          text-align: left;
+        }
+      }
+
+      .main-section-desc {
+        position: absolute;
+        top: 0;
+        right: vw-md(110px);
       }
     }
   }
