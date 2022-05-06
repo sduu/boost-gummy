@@ -1,0 +1,19 @@
+.section-marquee {
+  margin: 0 -#{$margin-sm};
+  overflow: hidden;
+
+  p {
+    font-family: $font-bold;
+    font-size: 16px;
+    color: $white;
+    white-space: nowrap;
+  }
+
+  @include responsive(T) {
+    margin: 0 -#{vw-md($margin-md)};
+
+    p {
+      font-size: vw-md(20px);
+    }
+  }
+}
