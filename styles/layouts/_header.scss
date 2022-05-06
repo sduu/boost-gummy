@@ -86,7 +86,7 @@
 
   @include responsive(T) {
     @include flexbox(between);
-    padding: calc($margin-md / 2) $margin-md;
+    padding: calc(vw-md($margin-md) / 2) vw-md($margin-md);
 
     .logo {
       margin-right: 0;

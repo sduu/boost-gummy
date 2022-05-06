@@ -107,7 +107,7 @@
 
   @include responsive(T) {
     &-inner {
-      padding: 0 $margin-md;
+      padding: 0 vw-md($margin-md);
       overflow: visible;
     }
 
