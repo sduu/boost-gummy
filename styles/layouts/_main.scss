@@ -62,7 +62,7 @@
 
   @include responsive(T) {
     &-section-1 {
-      padding-top: vw-md(150px);
+      padding-top: 21vh;
 
       .sub {
         right: auto;
@@ -110,7 +110,7 @@
     }
 
     &-section-4 {
-      padding-bottom: vw-md(40px);
+      padding-bottom: vw-md(100px);
 
       .title {
         width: vw-md(1050px);
@@ -141,6 +141,12 @@
         padding: 0 0 vw-md(50px);
         margin-top: -#{vw-md(150px)};
       }
+    }
+  }
+
+  @include responsive(D) {
+    &-section-1 {
+      padding-top: 15vh;
     }
   }
 }
