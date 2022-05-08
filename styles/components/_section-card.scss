@@ -6,12 +6,12 @@
 
     h3 {
       font-size: 30px;
-      color: $black;
+      color: $font-color;
     }
 
     p {
       font-size: 12px;
-      color: $black;
+      color: $font-color;
     }
   }
 
@@ -23,7 +23,7 @@
 
   &-item {
     width: vw-sm(420px);
-    border: 2px solid $yellow;
+    border: 2px solid $card-color;
     border-radius: 10px;
 
     &:nth-child(1) {
@@ -71,14 +71,14 @@
     .txt {
       margin-top: 16px;
       font-size: 16px;
-      color: $black;
+      color: $font-color;
     }
   }
 
   &-user {
     @include flexbox(start);
     padding: 5px 10px;
-    border-top: 2px solid $yellow;
+    border-top: 2px solid $card-color;
 
     .icon {
       width: 30px;
@@ -87,7 +87,7 @@
     .name {
       margin-left: 4px;
       font-size: 12px;
-      color: $black;
+      color: $font-color;
     }
   }
 
@@ -131,7 +131,6 @@
       &:nth-child(4) {
         transform: rotate(-8deg);
       }
-
     }
 
     &-review {
@@ -151,7 +150,7 @@
 
     &-user {
       padding: vw-md(10px);
-  
+
       .name {
         margin-left: wv-md(4px);
         font-size: vw-md(12px);

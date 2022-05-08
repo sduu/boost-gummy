@@ -10,14 +10,14 @@
     position: relative;
 
     .title {
-      color: $white;
+      color: $font-color;
       font-size: vw-sm(98px);
       line-height: vw-sm(75px);
       font-family: $font-bold;
     }
 
     .sub {
-      color: $white;
+      color: $font-color;
       font-size: vw-sm(16px);
       line-height: vw-sm(24px);
       position: absolute;
@@ -46,7 +46,7 @@
       width: vw-sm(90px);
       height: vw-sm(90px);
       font-weight: bold;
-      background-color: $button;
+      background-color: $white;
       border: vw-sm(2px) solid $black;
       border-radius: 100%;
       z-index: 1;
@@ -69,7 +69,7 @@
   &-desc {
     margin-top: vw-sm(100px);
     width: vw-sm(440px);
-    color: $white;
+    color: $font-color;
 
     h4 {
       font-size: 12px;
@@ -91,7 +91,7 @@
       display: block;
       width: 100%;
       margin-top: vw-sm(15px);
-      border: 2px solid $white;
+      border: 2px solid $border-color;
       border-radius: 27px;
       text-align: center;
       font-size: 16px;
@@ -99,8 +99,8 @@
       transition: 0.2s color ease-in-out, 0.2s background-color ease-in-out;
 
       &:active {
-        color: $black;
-        background-color: $white;
+        color: $hover-color;
+        background-color: $font-color;
       }
     }
   }
@@ -150,8 +150,8 @@
         font-size: vw-md(17px);
 
         &:hover {
-          color: $black;
-          background-color: $white;
+          color: $hover-color;
+          background-color: $font-color;
         }
       }
     }

@@ -3,14 +3,14 @@
   width: vw-sm(650px);
   height: vw-sm(650px);
   margin: 0 auto;
-  border: 2px solid $white;
+  border: 2px solid $card-color;
   border-radius: 100%;
 
   p {
     font-family: $font-bold;
     font-size: vw-sm(50px);
     line-height: vw-sm(48px);
-    color: $white;
+    color: $font-color;
 
     span {
       display: inline-block;
