@@ -71,6 +71,59 @@
     },
   });
 
+  /* marquee interaction */
+  class Marquee {
+    constructor(wrapper, option) {
+      this.targets = wrapper.querySelectorAll('.section-marquee-inner');
+      this.option = option;
+      this.timeline = gsap.timeline();
+
+      this.init();
+    }
+
+    init() {
+      this.targets.forEach(item => {
+        if (item.getAttribute('data-marquee') === 'left') {
+          this.timeline.fromTo(
+            item,
+            {x: 0},
+            {
+              ...this.option,
+              x: (i, t) => -t.querySelector('p').offsetWidth,
+              onInit: (i, t) => {
+                t.appendChild(t.querySelector('p').cloneNode(true));
+              },
+            },
+            '<'
+          );
+        } else {
+          this.timeline.fromTo(
+            item,
+            {x: (i, t) => -t.querySelector('p').offsetWidth},
+            {
+              ...this.option,
+              x: 0,
+              onInit: (i, t) => {
+                t.appendChild(t.querySelector('p').cloneNode(true));
+              },
+            },
+            '<'
+          );
+        }
+      });
+      this.timeline.pause();
+    }
+
+    play() {
+      this.timeline.play();
+    }
+
+    pause() {
+      this.timeline.pause();
+    }
+  }
+  const marquee = new Marquee(document.querySelector('.section-marquee'), {duration: 30, repeat: -1, ease: Linear.easeNone});
+
   /* section-sticky interaction */
   let stickyStep;
   const stickyNum = 3;
@@ -129,6 +182,7 @@
       });
       document.body.classList = 'theme-dark';
     }
+    marquee.pause();
   }
 
   /* main-section-4 interaction */
@@ -143,6 +197,7 @@
   function animateSection4() {
     gsap.to('body', {'background-color': '#fffbf0', 'background-image': 'none'});
     document.body.classList = 'theme-dark';
+    marquee.play();
   }
 
   /* footer interaction */

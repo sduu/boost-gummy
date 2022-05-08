@@ -2,6 +2,10 @@
   margin: 0 -#{$margin-sm};
   overflow: hidden;
 
+  &-inner {
+    @include flexbox(start);
+  }
+
   p {
     font-family: $font-bold;
     font-size: 16px;
