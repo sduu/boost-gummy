@@ -88,3 +88,45 @@ $flex-map: (
     @content;
   }
 }
+
+/* color theme */
+$font-color: var(--font-color);
+$hover-color: var(--font-color);
+$border-color: var(--border-color);
+$card-color: var(--card-color);
+
+$config: (
+  dark: (
+    font: $black,
+    hover: $white,
+    border: $black,
+    card: $yellow,
+  ),
+  light: (
+    font: $white,
+    hover: $black,
+    border: $white,
+    card: $white,
+  ),
+);
+
+@function setStyle($map, $object, $style) {
+  @if map-has-key($map, $object) {
+    @return map-get(map-get($map, $object), $style);
+  }
+  @warn "The key ´#{$object} is not available in the map.";
+  @return null;
+}
+
+@mixin theme($key) {
+  --font-color: #{setStyle($config, $key, font)};
+  --hover-color: #{setStyle($config, $key, hover)};
+  --border-color: #{setStyle($config, $key, border)};
+  --card-color: #{setStyle($config, $key, card)};
+}
+
+@each $theme in dark, light {
+  body.theme-#{$theme} {
+    @include theme($theme);
+  }
+}
