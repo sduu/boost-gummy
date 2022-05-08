@@ -5,7 +5,35 @@
   let bodyOffsetHeight;
 
   /* Smooth Scrollbar */
-  const smoothScroll = window.Scrollbar.init(document.querySelector('#scroll-content'), {thumbMinSize: 10, speed: 2});
+  const ScrollbarPlugin = window.Scrollbar.ScrollbarPlugin;
+  /* 스크롤 block */
+  class DisableScrollPlugin extends ScrollbarPlugin {
+    static pluginName = 'disableScroll';
+
+    static defaultOptions = {
+      direction: '',
+    };
+
+    transformDelta(delta) {
+      if (this.options.direction) {
+        delta[this.options.direction] = 0;
+      }
+
+      return {...delta};
+    }
+  }
+  Scrollbar.use(DisableScrollPlugin);
+
+  const smoothScroll = window.Scrollbar.init(document.querySelector('#scroll-content'), {
+    thumbMinSize: 10,
+    speed: 2,
+    plugins: {
+      disableScroll: {
+        direction: 'x',
+      },
+    },
+  });
+  document.querySelector('.scrollbar-track-x').remove();
 
   smoothScroll.addListener(function (e) {
     var _this = this;
