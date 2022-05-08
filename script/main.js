@@ -103,6 +103,20 @@
     }
   }
 
+  /* main-section-4 interaction */
+  ScrollTrigger.create({
+    trigger: '.main-section-4',
+    start: 'top center',
+    endTrigger: '.footer',
+    end: '30% 100%',
+    onEnter: () => animateSection4(),
+    onEnterBack: () => animateSection4(),
+  });
+  function animateSection4() {
+    gsap.to('body', {'background-color': '#fffbf0', 'background-image': 'none'});
+    document.body.classList = 'theme-dark';
+  }
+
   /* canvas scroll interaction */
   const canvasWrap = document.querySelector('#scene-content');
   const canvas = canvasWrap.querySelector('canvas');
