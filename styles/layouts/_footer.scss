@@ -15,6 +15,7 @@
       width: vw-sm(40px);
 
       svg {
+        stroke: $border-color;
         stroke-width: 4px;
       }
     }
@@ -84,6 +85,10 @@
 
     .logo {
       width: 140px;
+
+      svg {
+        fill: $font-color;
+      }
     }
 
     .copyright {

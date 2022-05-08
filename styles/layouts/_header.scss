@@ -9,6 +9,10 @@
       display: block;
       width: 100px;
     }
+
+    svg {
+      fill: $font-color;
+    }
   }
 
   .btn-cart {
@@ -32,6 +36,7 @@
     svg {
       width: 100%;
       height: auto;
+      stroke: $border-color;
     }
   }
 
@@ -79,7 +84,7 @@
       a {
         font-family: $font-bold;
         font-size: 86px;
-        color: $font-color;
+        color: $white;
       }
     }
   }
