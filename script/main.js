@@ -21,7 +21,7 @@
   });
 
   /* Scroll Trigger */
-  gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger, TextPlugin);
   ScrollTrigger.defaults({scroller: document.querySelector('#scroll-content')});
 
   ScrollTrigger.scrollerProxy('#scroll-content', {
@@ -42,6 +42,65 @@
       isMobile = false;
     },
   });
+
+  /* section-sticky interaction */
+  let stickyStep;
+  const stickyNum = 3;
+  const stickyTimeline = gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: '.section-sticky',
+        start: '0',
+        end: `${stickyNum * 200}%`,
+        pin: true,
+        scrub: true,
+        onUpdate: ({progress, direction, vars, isActive}) => {
+          if (stickyStep !== Math.trunc(progress * stickyNum)) {
+            stickyStep = Math.trunc(progress * stickyNum);
+            stickyStep === stickyNum ? null : animateSticky(stickyStep);
+          }
+        },
+      },
+    })
+    .fromTo('.section-sticky .deco-item', {opacity: 0, scale: 0}, {duration: 1, stagger: 0.2, opacity: 1, scale: 1, rotate: 30}, '<')
+    .to('.section-sticky .deco-item', {duration: 1, stagger: 0.2, opacity: 0, scale: 1.5, rotate: 60})
+    .repeat(2);
+
+  function animateSticky(step = 0) {
+    const detailTxt1 = [
+      ['01. Provides Major Cold and Flu Relief', '02. Alleviates Sinus Infections', '03. Encourages Healthy Skin', '04. Reduces Inflammation'],
+      ['01. Improves Common Cold Symptoms', '02. Holds Antioxidant Properties', '03. Promotes Glowing Skin', '04. Enhances Brain Function'],
+      ['01. Acts as a Powerful Antioxidant', '02. Helps Balance Hormones', '03. Maintains Heart Health', '04. Aids in Digestion'],
+    ];
+    const detailTxt2 = ['BOOST has 150mg of Elderberry Extract per serving', 'BOOST has 100mg of Vitamin C per serving', 'BOOST has 10mg of Zinc per serving'];
+
+    gsap.utils.toArray('.section-sticky .detail li').forEach((item, index) => {
+      gsap.to(item, {text: {value: detailTxt1[step][index], padSpace: true}});
+    });
+    gsap.to('.section-sticky .detail p', {text: {value: detailTxt2[step], padSpace: true}});
+
+    document.querySelectorAll('.section-sticky text').forEach((item, index) => {
+      if (index === step) {
+        item.classList.add('is-active');
+      } else {
+        item.classList.remove('is-active');
+      }
+    });
+
+    document.querySelector('.section-sticky').classList = `section-sticky is-step-${step}`;
+
+    if (step === 0) {
+      gsap.to('body', {'background-color': '#ffb800', 'background-image': 'linear-gradient(315.01deg, #ff710d 8.31%, #ffb800 88.22%)'});
+    } else if (step === 1) {
+      gsap.to('body', {'background-color': '#6f00ff', 'background-image': 'linear-gradient(155.92deg, #929dff 5.36%, #3f52ff 85.08%)'});
+    } else if (step === 2) {
+      gsap.to('body', {
+        'background-color': '#fff',
+        'background-image': 'linear-gradient(154.45deg, rgba(0, 26, 255, 0.39) -60.92%, rgba(0, 26, 255, 0) 34.15%, rgba(0, 26, 255, 0.39) 108.43%)',
+      });
+      document.querySelector('.section-sticky').classList.add('is-inverse');
+    }
+  }
 
   /* canvas scroll interaction */
   const canvasWrap = document.querySelector('#scene-content');
