@@ -93,12 +93,13 @@
       gsap.to('body', {'background-color': '#ffb800', 'background-image': 'linear-gradient(315.01deg, #ff710d 8.31%, #ffb800 88.22%)'});
     } else if (step === 1) {
       gsap.to('body', {'background-color': '#6f00ff', 'background-image': 'linear-gradient(155.92deg, #929dff 5.36%, #3f52ff 85.08%)'});
+      document.body.classList = 'theme-light';
     } else if (step === 2) {
       gsap.to('body', {
         'background-color': '#fff',
         'background-image': 'linear-gradient(154.45deg, rgba(0, 26, 255, 0.39) -60.92%, rgba(0, 26, 255, 0) 34.15%, rgba(0, 26, 255, 0.39) 108.43%)',
       });
-      document.querySelector('.section-sticky').classList.add('is-inverse');
+      document.body.classList = 'theme-dark';
     }
   }
 
