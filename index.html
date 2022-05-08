@@ -501,6 +501,15 @@
       <div id="scene-content">
         <canvas class="sm-hidden"></canvas>
       </div>
+      <div id="cursor-content" class="sm-hidden">
+        <svg>
+          <lineargradient id="cursorLinear" x1="0" x2="1" y1="0" y2="1">
+            <stop class="stop-1" offset="0%" style="stop-color=transparent;" />
+            <stop class="stop-2" offset="50%" style="stop-color=transparent;" />
+          </lineargradient>
+          <circle cx="0" cy="0" r="12" fill="url(#cursorLinear)" stroke="#000" stroke-width="2"></circle>
+        </svg>
+      </div>
     </div>
 
     <script src="./script/libs/smooth-scrollbar.js"></script>

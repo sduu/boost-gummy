@@ -43,6 +43,7 @@
     bodyOffsetHeight = _this.limit.y;
 
     /* 위치 고정 */
+    document.querySelector('#cursor-content').style.top = scrollTop + 'px';
     if (scrollTop < footerTop && !isMobile) {
       canvasWrap.style.top = scrollTop + 'px';
     }
@@ -314,8 +315,41 @@
       .to(e.target, {duration: 0.5, ease: Back.easeOut.config(1.7), rotate: -360});
   }
 
+  /* mouse cursor*/
+  const cursorPos = {};
+  let cursorTarget;
+
+  const cursorTimeline = gsap
+    .timeline({repeat: -1, repeatDelay: 1, paused: true})
+    .fromTo('#cursor-content .stop-1', {stopColor: '#ff710d'}, {duration: 0.4, stopColor: '#ff4dd8'})
+    .fromTo('#cursor-content .stop-2', {stopColor: '#ffb800'}, {duration: 0.4, stopColor: '#6800fe'}, '<')
+    .to('#cursor-content .stop-1', {duration: 0.4, stopColor: '#ff710d'}, '>1')
+    .to('#cursor-content .stop-2', {duration: 0.4, stopColor: '#ffb800'}, '<');
+
+  function mouseMove(e) {
+    cursorPos.x = e.clientX;
+    cursorPos.y = e.clientY;
+
+    drawCursor(e);
+  }
+  function drawCursor(e) {
+    gsap.set('#cursor-content circle', {cx: cursorPos.x, cy: cursorPos.y});
+
+    if (e.target === cursorTarget) return;
+    cursorTarget = e.target;
+
+    if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') {
+      gsap.to('#cursor-content circle', {duration: 0.2, r: 10, stroke: 'transparent', attr: {'fill-opacity': 1}});
+      cursorTimeline.restart();
+    } else {
+      gsap.to('#cursor-content circle', {duration: 0.2, r: 12, stroke: '#333', attr: {'fill-opacity': 0}});
+      cursorTimeline.pause();
+    }
+  }
+
   /* init event */
   window.addEventListener('load', initCanvas);
+  window.addEventListener('mousemove', mouseMove);
   document.querySelector('.footer .btn-shop i').addEventListener('mouseenter', enterBtnShop);
   document.querySelector('.footer .btn-shop i').addEventListener('mouseleave', leaveBtnShop);
 })();
