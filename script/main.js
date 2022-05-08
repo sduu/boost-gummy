@@ -145,6 +145,18 @@
     document.body.classList = 'theme-dark';
   }
 
+  /* footer interaction */
+  ScrollTrigger.create({
+    trigger: '.footer',
+    start: '30% 100%',
+    onEnter: () => animateFooter(),
+    onEnterBack: () => animateFooter(),
+  });
+  function animateFooter() {
+    gsap.to('body', {'background-color': '#ffb800', 'background-image': 'linear-gradient(315deg, #ff710d 8.31%, #ffb800 88.22%);'});
+    document.body.classList = 'theme-light';
+  }
+
   /* canvas scroll interaction */
   const canvasWrap = document.querySelector('#scene-content');
   const canvas = canvasWrap.querySelector('canvas');
