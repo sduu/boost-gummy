@@ -349,9 +349,29 @@
     }
   }
 
+  /* logo interaction */
+  function animateLogo(e) {
+    const logoMain = e.target.querySelectorAll('.logo-main');
+    const logoSub = e.target.querySelector('.logo-sub');
+    gsap
+      .timeline()
+      .to(logoMain, {
+        duration: 0.2,
+        stagger: 0.01,
+        y: index => index * -1.5,
+        opacity: index => 1 - index * 0.1,
+        ease: Power2.easeOut,
+      })
+      .to(logoMain, {duration: 0.2, stagger: 0.01, y: 0, opacity: 1, ease: Back.easeOut});
+    if (!logoSub) return;
+    gsap.timeline().to(logoSub, {duration: 0.3, y: -5, opacity: 0.7, ease: Power2.easeOut}).to(logoSub, {duration: 0.2, y: 0, opacity: 1, ease: Back.easeOut});
+  }
+
   /* init event */
   window.addEventListener('load', initCanvas);
   window.addEventListener('mousemove', mouseMove);
   document.querySelector('.footer .btn-shop i').addEventListener('mouseenter', enterBtnShop);
   document.querySelector('.footer .btn-shop i').addEventListener('mouseleave', leaveBtnShop);
+  document.querySelector('.header .logo').addEventListener('mouseenter', animateLogo);
+  document.querySelector('.footer .logo').addEventListener('mouseenter', animateLogo);
 })();
