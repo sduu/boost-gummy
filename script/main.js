@@ -245,22 +245,24 @@
       resize();
     });
 
-    const moveCenter = gsap.fromTo(
-      scenePos,
-      {x: () => 0.35 * canvas.offsetWidth},
-      {
-        x: 0,
-        scrollTrigger: {
-          trigger: '.header',
-          start: 'top top',
-          endTrigger: '.main-section-2',
-          end: 'top top',
-          scrub: true,
-          markers: true,
-          invalidateOnRefresh: true,
-        },
-      }
-    );
+    [scenePos, '.scene-content-btn'].forEach(item => {
+      gsap.fromTo(
+        item,
+        {x: () => 0.35 * canvas.offsetWidth},
+        {
+          x: 0,
+          scrollTrigger: {
+            trigger: '.header',
+            start: 'top top',
+            endTrigger: '.main-section-2',
+            end: 'top top',
+            scrub: true,
+            markers: true,
+            invalidateOnRefresh: true,
+          },
+        }
+      );
+    });
 
     function drawScene() {
       ctx.save();
