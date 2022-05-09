@@ -321,8 +321,10 @@
 
   const cursorTimeline = gsap
     .timeline({repeat: -1, repeatDelay: 1, paused: true})
-    .fromTo('#cursor-content .stop-1', {stopColor: '#ff710d'}, {duration: 0.4, stopColor: '#ff4dd8'})
-    .fromTo('#cursor-content .stop-2', {stopColor: '#ffb800'}, {duration: 0.4, stopColor: '#6800fe'}, '<')
+    .fromTo('#cursor-content .stop-1', {stopColor: '#ff710d'}, {duration: 0.2, stopColor: '#ff710d'})
+    .fromTo('#cursor-content .stop-2', {stopColor: '#ffb800'}, {duration: 0.2, stopColor: '#ffb800'}, '<')
+    .to('#cursor-content .stop-1', {duration: 0.4, stopColor: '#ff4dd8'})
+    .to('#cursor-content .stop-2', {duration: 0.4, stopColor: '#6800fe'}, '<')
     .to('#cursor-content .stop-1', {duration: 0.4, stopColor: '#ff710d'}, '>1')
     .to('#cursor-content .stop-2', {duration: 0.4, stopColor: '#ffb800'}, '<');
 
