@@ -340,7 +340,7 @@
     if (e.target === cursorTarget) return;
     cursorTarget = e.target;
 
-    if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') {
+    if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.closest('.logo')) {
       gsap.to('#cursor-content circle', {duration: 0.2, r: 10, stroke: 'transparent', attr: {'fill-opacity': 1}});
       cursorTimeline.restart();
     } else {
